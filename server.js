@@ -9,7 +9,7 @@ const Context = require('slapp-context-beepboop')
 var port = process.env.PORT || 3000
 
 var slapp = Slapp({
-  // Beep Boop sets the SLACK_VERIFY_TOKEN env var
+  //  sets the SLACK_VERIFY_TOKEN env var
   verify_token: process.env.SLACK_VERIFY_TOKEN,
   convo_store: ConvoStore(),
   context: Context()
@@ -18,7 +18,7 @@ var slapp = Slapp({
 
 var HELP_TEXT = `
 I will respond to the following messages:
-\`help\` - to see this message.
+\`helpme\` - to see this message.
 \`hi\` - to demonstrate a conversation that tracks state.
 \`thanks\` - to demonstrate a simple response.
 \`<type-any-other-text>\` - to demonstrate a random emoticon response, some of the time :wink:.
@@ -35,8 +35,7 @@ slapp.message('helpme', ['mention', 'direct_message'], (msg) => {
 })
 
 // "Conversation" flow that tracks state - kicks off when user says hi, hello or hey
-slapp
-  .message('^(hi|hello|hey)$', ['direct_mention', 'direct_message'], (msg, text) => {
+slapp.message('^(hi|hello|hey)$', ['direct_mention', 'direct_message'], (msg, text) => {
     msg
       .say(`${text}, how are you?`)
       // sends next event from user to this route, passing along state
@@ -92,14 +91,13 @@ slapp.message(/^(thanks|thank you)/i, ['mention', 'direct_message'], (msg) => {
 })
 
 // demonstrate returning an attachment...
-slapp.message('attachment', ['mention', 'direct_message'], (msg) => {
+slapp.message('tool', ['mention', 'direct_message'], (msg) => {
   msg.say({
-    text: 'Check out this amazing attachment! :confetti_ball: ',
+    text: 'Here is the AuthentiPix Tool ',
     attachments: [{
-      text: 'Slapp is a robust open source library that sits on top of the Slack APIs',
-      title: 'Slapp Library - Open Source',
-      image_url: 'https://storage.googleapis.com/beepboophq/_assets/bot-1.22f6fb.png',
-      title_link: 'https://beepboophq.com/',
+      text: 'Check AuthentiPix Customers oAuth Status',
+      title: 'AuthentiPix oAuth Tool',
+      title_link: 'https://aptools.azurewebsites.net/',
       color: '#7CD197'
     }]
   })
