@@ -26,12 +26,18 @@ I will respond to the following messages:
 `
 
 //*********************************************
-// Setup different handlers for messages
+// Handlers for Messages
 //*********************************************
 
 // response to the user typing "help"
 slapp.message('help', ['mention', 'direct_message'], (msg) => {
   msg.say(HELP_TEXT)
+})
+
+slapp.command('/deleteoauth', /^in/, (msg) => {
+  // `respond` is used for actions or commands and uses the `response_url` provided by the
+  // incoming request from Slack
+  msg.respond(`Glad you are in ${match}!`)
 })
 
 // "Conversation" flow that tracks state - kicks off when user says hi, hello or hey
