@@ -18,11 +18,11 @@ var slapp = Slapp({
 
 var HELP_TEXT = `
 I will respond to the following messages:
-\`helpme\` - to see this message.
+\`help\` - to see this message.
 \`hi\` - to demonstrate a conversation that tracks state.
-\`thanks\` - to demonstrate a simple response.
-\`<type-any-other-text>\` - to demonstrate a random emoticon response, some of the time :wink:.
-\`attachment\` - to see a Slack attachment message.
+\`resetinstagram\` - Delete Instagram account.
+\`deleteoauth\` - Delete the customers oAuth Token .
+\`tool\` - Provide link to the AuthentiPix oAuth tool.
 `
 
 //*********************************************
@@ -30,7 +30,7 @@ I will respond to the following messages:
 //*********************************************
 
 // response to the user typing "help"
-slapp.message('helpme', ['mention', 'direct_message'], (msg) => {
+slapp.message('help', ['mention', 'direct_message'], (msg) => {
   msg.say(HELP_TEXT)
 })
 
@@ -78,7 +78,7 @@ slapp.message('^(hi|hello|hey)$', ['direct_mention', 'direct_message'], (msg, te
     // At this point, since we don't route anywhere, the "conversation" is over
   })
 
-// Can use a regex as well
+// use a regex as well //
 slapp.message(/^(thanks|thank you)/i, ['mention', 'direct_message'], (msg) => {
   // You can provide a list of responses, and a random one will be chosen
   // You can also include slack emoji in your responses
@@ -90,7 +90,7 @@ slapp.message(/^(thanks|thank you)/i, ['mention', 'direct_message'], (msg) => {
   ])
 })
 
-// demonstrate returning an attachment...
+// Return The AuthentiPix oAuth tool//
 slapp.message('tool', ['mention', 'direct_message'], (msg) => {
   msg.say({
     text: 'Here is the AuthentiPix Tool ',
