@@ -60,7 +60,7 @@ slapp.message('resetinstagram (.*)', ['direct_message'],  (msg, text, account) =
   }).route('handleInstagram', {who: account})
 })
 
- slapp.action('delete_confirmation', 'answer', (msg, val, account) =>{
+ slapp.action('delete_confirmation', 'answer', (msg, val, state) =>{
    msg.respond(state.who + ' has been ' + val)
  })
 
