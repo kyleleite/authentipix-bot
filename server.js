@@ -57,17 +57,12 @@ slapp.message('resetinstagram (.*)', ['direct_message'],  (msg, text, account) =
       },
       ]
     }]
-  }).route('handleInstagram', {who: account})
+  })
 })
 
-  slapp.route('handleInstagram', (msg, state)=> {
-    if (msg.action === 'answeryes') {
-      msg.say(':white_check_mark: ' + state.who + ' has been successfully deleted ')
-    } else if (msg.action === 'answerno') {
-      msg.say(':X: ' + state.who + ' account delete aborted ')
-    }
-    
-  })
+ slapp.action('delete_confirmation', 'answer', (msg, val) =>{
+   msg.respond('You are' + val)
+ })
 
 // "Conversation" flow that tracks state - kicks off when user says hi, hello or hey
 slapp.message('^(hi|hello|hey)$', ['direct_mention', 'direct_message'], (msg, text) => {
