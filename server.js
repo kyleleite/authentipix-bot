@@ -34,7 +34,7 @@ slapp.message('help', ['mention', 'direct_message'], (msg) => {
   msg.say(HELP_TEXT)
 })
 
-slapp.message('resetinstagram (.*)', ['direct_message'],  (msg, text, account) => {
+slapp.message('resetinstagram (.*)' ['direct_message'],  (msg, text, account) => {
 
   msg.say({
     text: 'Are you sure you want to delete the account?',
@@ -42,17 +42,17 @@ slapp.message('resetinstagram (.*)', ['direct_message'],  (msg, text, account) =
       text: '',
       callback_id: 'delete_confirmation',
       actions:[{
-        name:'answerYes',
-        text:':thumbsup:',
+        name:'answer',
+        text:':thunbsup:',
         type:'button',
         value:'yes',
         style:'default'
       },
       {
-         name:'answerNo',
-        text:':thumbsdown:',
+         name:'answer',
+        text:':thunbsdown:',
         type:'button',
-        value:'no',
+        value:'No',
         style:'default'
       },
       ]
@@ -61,14 +61,8 @@ slapp.message('resetinstagram (.*)', ['direct_message'],  (msg, text, account) =
 })
 
   .route('handleInstagram', (msg, state)=> {
-    if(msg.name === 'answerYes'){
-    msg.say(':smile:' + state.who + ' has been deleted')
-    }
-    if (msg.name === 'answerNo'){
-    msg.say(':smile:' + state.who + ' has notyy been deleted')
-    }
-  },
-
+    msg.say(':smile:' + state.who + 'has been deleted')
+  })
 
 // "Conversation" flow that tracks state - kicks off when user says hi, hello or hey
 slapp.message('^(hi|hello|hey)$', ['direct_mention', 'direct_message'], (msg, text) => {
