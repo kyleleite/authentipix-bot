@@ -34,7 +34,7 @@ slapp.message('help', ['mention', 'direct_message'], (msg) => {
   msg.say(HELP_TEXT)
 })
 
-slapp.message('resetinstagram (.*)' ['direct_message'],  (msg, text, account) => {
+slapp.message('resetinstagram (.*)', ['direct_message'],  (msg, text, account) => {
 
   msg.say({
     text: 'Are you sure you want to delete the account?',
@@ -57,11 +57,11 @@ slapp.message('resetinstagram (.*)' ['direct_message'],  (msg, text, account) =>
       },
       ]
     }]
-  }).route('handleInstagram', {what: account })
+  }).route('handleInstagram', {who: account })
 })
 
   .route('handleInstagram', (msg, state)=> {
-    msg.say(':smile:' + state.what + 'has been deleted')
+    msg.say(':smile:' + state.who + 'has been deleted')
   })
 
 // "Conversation" flow that tracks state - kicks off when user says hi, hello or hey
