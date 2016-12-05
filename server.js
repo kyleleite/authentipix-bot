@@ -61,7 +61,7 @@ slapp.message('resetinstagram (.*)', ['direct_message'],  (msg, text, account) =
 })
 
   .route('handleInstagram', (msg, state)=> {
-    msg.say(':smile:' + state.who + 'has been deleted')
+    msg.say(':smile:' + state.who + ' has been deleted')
   })
 
 // "Conversation" flow that tracks state - kicks off when user says hi, hello or hey
