@@ -43,14 +43,14 @@ slapp.message('resetinstagram (.*)' ['direct_message'],  (msg, text, account) =>
       callback_id: 'delete_confirmation',
       actions:[{
         name:'answer',
-        text:':thunbsup:',
+        text:':thumbsup:',
         type:'button',
         value:'yes',
         style:'default'
       },
       {
          name:'answer',
-        text:':thunbsdown:',
+        text:':thumbsdown:',
         type:'button',
         value:'No',
         style:'default'
