@@ -34,7 +34,7 @@ slapp.message('help', ['mention', 'direct_message'], (msg) => {
   msg.say(HELP_TEXT)
 })
 
-slapp.message('resetinstagram (.*)' ['direct_message'],  (msg, text, account) => {
+slapp.message('resetinstagram (.*)', ['direct_message'],  (msg, text, account) => {
 
   msg.say({
     text: 'Are you sure you want to delete the account?',
@@ -43,14 +43,14 @@ slapp.message('resetinstagram (.*)' ['direct_message'],  (msg, text, account) =>
       callback_id: 'delete_confirmation',
       actions:[{
         name:'answer',
-        text:':thunbsup:',
+        text:':thumbsup:',
         type:'button',
         value:'yes',
         style:'default'
       },
       {
          name:'answer',
-        text:':thunbsdown:',
+        text:':thumbsdown:',
         type:'button',
         value:'No',
         style:'default'
