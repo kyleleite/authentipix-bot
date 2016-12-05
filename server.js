@@ -39,6 +39,16 @@ slapp.command('/inorout', /^in/, (msg) => {
   // incoming request from Slack
   msg.respond(`Glad you are in ${match}!`)
 })
+slapp.command('/deleteoauth', /^in/, (msg) => {
+  // `respond` is used for actions or commands and uses the `response_url` provided by the
+  // incoming request from Slack
+  msg.say(`Instagram Account Deleted`)
+  msg.respond(`oAuth token deleted ${match}!`)
+})
+slapp.message('resetinstagram (.*)' ['direct_message'],  (msg, text, account) => {
+
+  msg.say(`Instagram Account Deleted`)
+})
 
 // "Conversation" flow that tracks state - kicks off when user says hi, hello or hey
 slapp.message('^(hi|hello|hey)$', ['direct_mention', 'direct_message'], (msg, text) => {
