@@ -61,9 +61,9 @@ slapp.message('resetinstagram (.*)', ['direct_message'],  (msg, text, account) =
 })
 
   slapp.route('handleInstagram', (msg, state)=> {
-    if (msg.action.name === 'answeryes') {
+    if (msg.action === 'answeryes') {
       msg.say(':white_check_mark: ' + state.who + ' has been successfully deleted ')
-    } else if (msg.action.name === 'answerno') {
+    } else if (msg.action === 'answerno') {
       msg.say(':X: ' + state.who + ' account delete aborted ')
     }
     
